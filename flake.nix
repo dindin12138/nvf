@@ -37,14 +37,20 @@
               ./modules
             ];
           };
+          nvf-renamed = pkgs.runCommand "nvf-ide" { } ''
+            mkdir -p $out/bin
+            ln -s ${neovimConfigured.neovim}/bin/nvim $out/bin/nvf
+          '';
         in
         {
           # Packages to be exposed under packages.<system>. Those can accessed
           # directly from package outputs in other flakes if this flake is added
           # as an input. You may run those packages with 'nix run .#<package>'
-          default = self.packages.${system}.neovimConfigured;
-          neovimConfigured = neovimConfigured.neovim;
+          # default = self.packages.${system}.neovimConfigured;
+          # neovimConfigured = neovimConfigured.neovim;
+          default = nvf-renamed;
         }
+
       );
     };
 }
