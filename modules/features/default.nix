@@ -1,6 +1,6 @@
 {
   imports = [
     ./theme.nix
-    ./dashboard.nix
+    ./statusline.nix
   ];
 }

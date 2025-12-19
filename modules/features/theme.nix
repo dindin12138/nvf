@@ -1,5 +1,7 @@
 {
-  config.vim = {
-    theme.enable = true;
+  config.vim.theme = {
+    enable = true;
+    name = "catppuccin";
+    style = "mocha";
   };
 }
